@@ -33,5 +33,4 @@ export const MainContent = styled.main`
 	padding: 15px;
 	box-sizing: border-box;
 	overflow-y: auto;
-	border-radius: 15%;
 `;

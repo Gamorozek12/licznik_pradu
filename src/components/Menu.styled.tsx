@@ -27,6 +27,10 @@ export const NavigationList = styled.ul`
 `;
 
 export const NavItem = styled.li`
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
     a {
         color: #b8c1cb;
         text-decoration: none;
@@ -35,6 +39,11 @@ export const NavItem = styled.li`
 
         &:hover {
             color: #ffffff;
+        }
+
+        &.active {
+            color: #ffffff;
+            font-weight: 700;
         }
     }
 `;
