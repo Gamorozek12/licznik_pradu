@@ -1,37 +1,56 @@
 import data from "../../data.json";
+import {
+  TableContainer,
+  TableHeader,
+  TableBody,
+  Row,
+  Col,
+} from "./KitchenPage.styled";
+import Header from "../../components/Header";
 
-function KitchenPage(){
+function KitchenPage() {
+  console.log("data: ", data[1]);
 
-    console.log("data: ", data[1]);
-    return(
-        <>
-            <div>
-                <h1>Hello kitchen</h1>
-            </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>powerLevel</th>
-                        <th>cost</th>
-                        <th>isActive</th>
-                        <th>time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.map((item) => 
-                        <tr>
-                            <td>{item.id}</td>
-                            <td>{item.powerLevel}</td>
-                            <td>{item.cost}</td>
-                            <td>{item.isActive ? "true" : "false"}</td>
-                            <td>{item.time}</td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
-        </>
-    );
+  const columns: string[] = [];
+
+  data.forEach((item) => {
+    Object.keys(item).forEach((key) => {
+      if (!columns.includes(key)) {
+        columns.push(key);
+      }
+    });
+  });
+
+  return (
+    <>
+      <Header name="Kitchen" />
+
+      <TableContainer>
+        <TableHeader>
+          {columns.map((key) => (
+            <Col>{key}</Col>
+          ))}
+        </TableHeader>
+
+        <TableBody>
+          {data.map((item: any) => (
+            <Row>
+              {columns.map((key) => {
+                const value = item[key];
+                let displayValue = value;
+
+                if (typeof value === "boolean") {
+                  displayValue = value ? "true" : "false";
+                }
+
+                return <Col>{displayValue}</Col>;
+              })}
+            </Row>
+          ))}
+        </TableBody>
+      </TableContainer>
+    </>
+  );
 }
 
 export default KitchenPage;

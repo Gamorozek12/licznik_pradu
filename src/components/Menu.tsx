@@ -1,12 +1,12 @@
 import Logo from "../icons/logo.png";
-import { 
-  MenuContainer, 
-  TopSection, 
-  LogoImage, 
-  NavigationList, 
-  NavItem, 
-  Separator
-} from './Menu.styled';
+import {
+  MenuContainer,
+  TopSection,
+  LogoImage,
+  NavigationList,
+  NavItem,
+  Separator,
+} from "./Menu.styled";
 import { NavLink } from "react-router";
 
 function Menu() {
@@ -15,7 +15,7 @@ function Menu() {
       <TopSection>
         <LogoImage src={Logo} alt="Logo" />
       </TopSection>
-      <Separator/>
+      <Separator />
       <NavigationList>
         <NavItem>
           <NavLink to="/">Home</NavLink>
