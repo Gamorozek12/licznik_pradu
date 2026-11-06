@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "powerLevel": 2,
+    "cost": 20,
+    "isActive": false,
+    "time": 3
+  },
+  {
+    "id": 2,
+    "powerLevel": 5,
+    "cost": 20,
+    "isActive": false,
+    "time": 5
+  },
+  {
+    "id": 3,
+    "powerLevel": 6,
+    "cost": 50,
+    "isActive": true,
+    "time": 4
+  },
+  {
+    "id": 4,
+    "powerLevel": 6,
+    "cost": 50,
+    "isActive": true,
+    "time": 4
+  }
+]

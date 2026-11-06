@@ -7,31 +7,32 @@ export const GlobalStyle = createGlobalStyle`
 		padding: 0;
 		width: 100%;
 		height: 100%;
-		overflow: hidden;
 		background-color: #353f4d;
+	}
+
+	html, body, #root, input, select{
+		font-family: "Courier New";
 	}
 `;
 
 export const AppContainer = styled.div`
-	display: flex;
+	display: grid;
+	grid-template-columns: 15% 85%;
 	width: 100%;
 	height: 100%;
 `;
 
 export const Sidebar = styled.nav`
-	width: 15%;
-	min-width: 200px;
-	height: 100%;
+	overflow: hidden;
 	padding: 20px;
-	box-sizing: border-box;
-	border-radius: 25%;
 `;
 
 export const MainContent = styled.main`
-	width: 85%;
-	height: 100%;
+	display: grid;
 	padding: 15px;
-	box-sizing: border-box;
-	overflow-y: auto;
-	border-radius: 15%;
+	grid-template-rows: 95% 5%;
+`;
+
+export const FooterStyled = styled.footer`
+	width: 100%;
 `;

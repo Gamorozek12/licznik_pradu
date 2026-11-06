@@ -1,6 +1,7 @@
 import { GlobalStyle, AppContainer, Sidebar, MainContent } from './App.styled';
 import Menu from './components/Menu';
 import Content from './components/Content';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
         
         <MainContent>
           <Content/>
+          <Footer/>
         </MainContent>
+        
       </AppContainer>
     </>
   );
