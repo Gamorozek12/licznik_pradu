@@ -2,30 +2,43 @@ import {
   Title,
   Description,
   Divider,
-  Select,
   SubmitButton,
   FormContainer,
   TextareaStyled,
   InputStyled,
   LabelStyled,
+  SlideContainer,
+  Slider,
 } from "./SettingsPage.styled";
-import Message from "./Message";
-import Header from "../../components/Header";
+import Message from "../../components/Message/Message";
+import Header from "../../components/Header/Header";
 import { useState, type ChangeEvent } from "react";
+import Modal from "../../components/Modal/Modal";
 
 function SettingsPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [value, setValue] = useState(2);
+
+  const validationMsg = {
+    errorDesc: "your text is too long",
+    errorApiUrl: "your API url is too long or too short",
+    validMsg: "OK",
+    stateDisabled: "Disabled",
+    stateActive: "Active",
+    stateNeutral: "You have to chose a state",
+  };
+
   const fields = {
     description: {
-      isValid: false,
+      isValid: true,
       text: "",
-      errorMsg: "your text is too long",
-      validMsg: "OK",
     },
     apiUrl: {
       isValid: false,
       text: "",
-      errorMsg: "your API url is too long or too short",
-      validMsg: "OK",
+    },
+    state: {
+      isValid: false,
     },
   };
 
@@ -48,6 +61,13 @@ function SettingsPage() {
       return false;
     }
   };
+
+  const isFormValid =
+    formConfig.apiUrl.isValid &&
+    formConfig.description.isValid &&
+    formConfig.state.isValid
+      ? false
+      : true;
 
   return (
     <div>
@@ -84,9 +104,9 @@ function SettingsPage() {
           <Message
             isValid={formConfig.description.isValid}
             messageDesc={
-              formConfig.description.isValid
-                ? formConfig.description.validMsg
-                : formConfig.description.errorMsg
+              validationMsg[
+                formConfig.description.isValid ? "validMsg" : "errorDesc"
+              ]
             }
           />
         </LabelStyled>
@@ -111,25 +131,55 @@ function SettingsPage() {
           <Message
             isValid={formConfig.apiUrl.isValid}
             messageDesc={
-              formConfig.apiUrl.isValid
-                ? formConfig.apiUrl.validMsg
-                : formConfig.apiUrl.errorMsg
+              validationMsg[
+                formConfig.apiUrl.isValid ? "validMsg" : "errorApiUrl"
+              ]
             }
           />
         </LabelStyled>
-        <Select>
-          <option>Active</option>
-          <option>Disabled</option>
-        </Select>
-
+        <SlideContainer>
+          <LabelStyled>
+            Choose a state:
+            <Slider
+              type="range"
+              min="1"
+              max="3"
+              value={value}
+              onChange={(e) => setValue(Number(e.target.value))}
+            />
+            <Message
+              isValid={
+                value == 2
+                  ? (formConfig.state.isValid = false)
+                  : (formConfig.state.isValid = true)
+              }
+              messageDesc={
+                validationMsg[
+                  formConfig.state.isValid
+                    ? value == 1
+                      ? "stateDisabled"
+                      : "stateActive"
+                    : "stateNeutral"
+                ]
+              }
+            />
+          </LabelStyled>
+        </SlideContainer>
+        <Modal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          title="Your data"
+          description={formConfig.description.text}
+          apiUrl={formConfig.apiUrl.text}
+          state={value == 1 ? "disabled" : "active"}
+        />
         <SubmitButton
           type="submit"
           value="Submit"
-          disabled={
-            formConfig.apiUrl.isValid && formConfig.description.isValid
-              ? false
-              : true
-          }
+          disabled={isFormValid}
+          onClick={() => {
+            setIsModalOpen(true);
+          }}
         />
       </FormContainer>
     </div>

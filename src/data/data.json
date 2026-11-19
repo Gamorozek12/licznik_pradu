@@ -1,0 +1,33 @@
+{
+  "kitchen": {
+    "title": "Kitchen",
+    "description": "Monthly energy usage in the kitchen.",
+    "usageData": [],
+    "date": "2026-11-12"
+  },
+  "livingRoom": {
+    "title": "Living Room",
+    "description": "Monthly energy usage in the living room.",
+    "usageData": [
+      { "month": "January", "usage": 45 },
+      { "month": "February", "usage": 52 },
+      { "month": "March", "usage": 90 },
+      { "month": "April", "usage": 60 },
+      { "month": "May", "usage": 55 },
+      { "month": "June", "usage": 70 },
+      { "month": "July", "usage": 65 },
+      { "month": "August", "usage": 80 },
+      { "month": "September", "usage": 75 },
+      { "month": "October", "usage": 68 },
+      { "month": "November", "usage": 90 },
+      { "month": "December", "usage": 85 }
+    ],
+    "date": "2026-11-12"
+  },
+  "bedroom": {
+    "title": "Bedroom",
+    "description": "Monthly energy usage in the bedroom.",
+    "usageData": [],
+    "date": "2026-11-12"
+  }
+}

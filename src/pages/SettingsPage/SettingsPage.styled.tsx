@@ -31,20 +31,17 @@ export const Divider = styled.hr`
   margin: 8px;
 `;
 
-export const Select = styled.select`
-  padding: 10px;
-  font-size: 14px;
-  color: #222121;
-  background-color: #ccc9c9;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin: 5px 0 20px 0;
+export const SlideContainer = styled.div`
   width: 100%;
+`;
+
+export const Slider = styled.input`
+  height: 25px;
 `;
 
 export const SubmitButton = styled.input<{ disabled?: boolean }>`
   padding: 10px 16px;
+  margin-top: 10px;
   font-size: 14px;
   color: #000000;
   background-color: ${({ disabled }) => (disabled ? "#b36969" : "#6d8d5a")};

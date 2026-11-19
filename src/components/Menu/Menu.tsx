@@ -1,4 +1,4 @@
-import Logo from "../icons/logo.png";
+import Logo from "../../icons/logo.png";
 import {
   MenuContainer,
   TopSection,
@@ -18,7 +18,9 @@ function Menu() {
       <Separator />
       <NavigationList>
         <NavItem>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/homepage">Home</NavLink>
+          <NavLink to="/bedroom">Bedroom</NavLink>
+          <NavLink to="/livingroompage">Living Room</NavLink>
           <NavLink to="/kitchenpage">Kitchen</NavLink>
           <NavLink to="/settingspage">Settings</NavLink>
         </NavItem>

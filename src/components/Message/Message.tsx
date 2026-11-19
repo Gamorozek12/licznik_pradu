@@ -1,9 +1,5 @@
 import { MessageStyled } from "./Message.styled";
-
-type MessageProps = {
-  isValid: boolean;
-  messageDesc: string;
-};
+import type { MessageProps } from "../../types/Message.types";
 
 function Message({ isValid, messageDesc }: MessageProps) {
   return <MessageStyled $isValid={isValid}>{messageDesc}</MessageStyled>;
