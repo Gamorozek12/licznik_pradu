@@ -28,13 +28,15 @@ function KitchenPage() {
       <TableContainer>
         <TableHeader>
           {columns.map((key) => (
-            <Col>{key}</Col>
+            <Col key={key} data-testid="table-header-cell">
+              {key}
+            </Col>
           ))}
         </TableHeader>
 
         <TableBody>
           {data.map((item: any) => (
-            <Row>
+            <Row key={item.id} data-testid="table-row">
               {columns.map((key) => {
                 const value = item[key];
                 let displayValue = value;
@@ -43,7 +45,11 @@ function KitchenPage() {
                   displayValue = value ? "true" : "false";
                 }
 
-                return <Col>{displayValue}</Col>;
+                return (
+                  <Col key={key} data-testid="table-cell">
+                    {displayValue}
+                  </Col>
+                );
               })}
             </Row>
           ))}
