@@ -1,4 +1,4 @@
-import data from "../../data.json";
+import data from "../../data/kitchen.json";
 import {
   TableContainer,
   TableHeader,
@@ -6,7 +6,7 @@ import {
   Row,
   Col,
 } from "./KitchenPage.styled";
-import Header from "../../components/Header";
+import Header from "../../components/Header/Header";
 
 function KitchenPage() {
   console.log("data: ", data[1]);
